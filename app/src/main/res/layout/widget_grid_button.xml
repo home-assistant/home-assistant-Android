@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gridButtonLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="54dp"
+    android:maxHeight="102dp"
+    android:orientation="horizontal"
+    android:background="@drawable/widget_grid_button_background"
+    android:padding="8dp">
+    <ImageView
+        android:id="@+id/widgetImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:importantForAccessibility="no"
+        android:maxHeight="18dp"
+        android:tint="?colorWidgetOnContainer"
+        tools:src="@drawable/ic_flash_on_24dp"
+        tools:ignore="UseAppTint" />
+
+    <TextView
+        android:id="@+id/widgetLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:layout_gravity="center"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="?colorWidgetOnContainer"
+        tools:text="@string/widget_label_placeholder_text_button"
+        style="@style/TextAppearance.Material3.LabelMedium" />
+</LinearLayout>
