@@ -15,8 +15,8 @@ data class GridWidgetItemEntity(
     val domain: String,
     @ColumnInfo(name = "service")
     val service: String,
-    @ColumnInfo(name = "service_data")
-    val serviceData: String,
+    @ColumnInfo(name = "entity_id")
+    val entityId: String,
     @ColumnInfo(name = "label")
     val label: String?,
     @ColumnInfo(name = "icon_name")

@@ -1,6 +1,7 @@
 package io.homeassistant.companion.android.widgets.grid.config
 
 import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -14,18 +15,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import io.homeassistant.companion.android.database.widget.GridWidgetDao
 import io.homeassistant.companion.android.databinding.WidgetGridConfigureBinding
 import io.homeassistant.companion.android.settings.widgets.ManageWidgetsViewModel
 import io.homeassistant.companion.android.util.compose.HomeAssistantAppTheme
 import io.homeassistant.companion.android.widgets.BaseWidgetConfigureActivity
-import io.homeassistant.companion.android.widgets.grid.asDbEntity
+import io.homeassistant.companion.android.widgets.BaseWidgetProvider
+import io.homeassistant.companion.android.widgets.grid.GridWidget
 import io.homeassistant.companion.android.widgets.grid.asGridConfiguration
-import io.homeassistant.companion.android.widgets.grid.asRemoteViews
 import javax.inject.Inject
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GridWidgetConfigureActivity : BaseWidgetConfigureActivity() {
@@ -104,13 +103,16 @@ class GridWidgetConfigureActivity : BaseWidgetConfigureActivity() {
 
     private fun onConfigure(config: GridConfiguration) {
         val config = config.copy(serverId = selectedServerId)
-        val appWidgetManager = AppWidgetManager.getInstance(this)
-        val views = config.asRemoteViews(this, appWidgetId)
-        appWidgetManager.updateAppWidget(appWidgetId, views)
 
-        lifecycleScope.launch {
-            gridWidgetDao.add(config.asDbEntity(appWidgetId))
+        val intent = Intent().apply {
+            action = BaseWidgetProvider.RECEIVE_DATA
+            component = ComponentName(applicationContext, GridWidget::class.java)
+
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+            putExtra(GridWidget.EXTRA_CONFIG, config)
         }
+
+        sendBroadcast(intent)
 
         val result = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         setResult(RESULT_OK, result)

@@ -339,9 +339,9 @@ private fun ActionConfigurationDialog(
                 )
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
-                    value = gridItem.serviceData,
-                    onValueChange = { gridItem = gridItem.copy(serviceData = it) },
-                    label = { Text(stringResource(R.string.widget_grid_service_data)) }
+                    value = gridItem.entityId,
+                    onValueChange = { gridItem = gridItem.copy(entityId = it) },
+                    label = { Text(stringResource(R.string.widget_grid_entity)) }
                 )
 
                 Row {

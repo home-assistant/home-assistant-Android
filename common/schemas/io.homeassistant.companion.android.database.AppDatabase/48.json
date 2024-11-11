@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 48,
-    "identityHash": "4f1eb49d122616070bd18f183e50400f",
+    "identityHash": "3fb63b397e191b7d09f0a1b69d8e0b35",
     "entities": [
       {
         "tableName": "sensor_attributes",
@@ -631,7 +631,7 @@
       },
       {
         "tableName": "grid_widget_items",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grid_id` INTEGER NOT NULL, `domain` TEXT NOT NULL, `service` TEXT NOT NULL, `service_data` TEXT NOT NULL, `label` TEXT, `icon_name` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grid_id` INTEGER NOT NULL, `domain` TEXT NOT NULL, `service` TEXT NOT NULL, `entity_id` TEXT NOT NULL, `label` TEXT, `icon_name` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -658,8 +658,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "serviceData",
-            "columnName": "service_data",
+            "fieldPath": "entityId",
+            "columnName": "entity_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -1217,7 +1217,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4f1eb49d122616070bd18f183e50400f')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3fb63b397e191b7d09f0a1b69d8e0b35')"
     ]
   }
 }
