@@ -82,7 +82,7 @@ fun GridConfiguration(
                     icon = { Icon(Icons.Default.Edit, null) }
                 )
                 PreferenceItem(
-                    name = stringResource(R.string.widget_grid_require_authentication),
+                    name = stringResource(R.string.widget_checkbox_require_authentication),
                     checked = config.requireAuthentication,
                     onClick = { onRequireAuthenticationChange(!config.requireAuthentication) },
                     icon = { Icon(Icons.Default.Lock, null) }
@@ -145,7 +145,7 @@ fun GridConfiguration(
             modifier = Modifier.align(Alignment.End),
             onClick = { onConfigure(config) }
         ) {
-            Text(stringResource(R.string.widget_grid_save))
+            Text(stringResource(R.string.save))
         }
     }
 }
@@ -323,13 +323,13 @@ private fun ActionConfigurationDialog(
                     modifier = Modifier.fillMaxWidth(),
                     value = gridItem.icon,
                     onValueChange = { gridItem = gridItem.copy(icon = it) },
-                    label = { Text(stringResource(R.string.widget_grid_icon)) }
+                    label = { Text(stringResource(R.string.icon)) }
                 )
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = gridItem.domain,
                     onValueChange = { gridItem = gridItem.copy(domain = it) },
-                    label = { Text(stringResource(R.string.widget_grid_domain)) }
+                    label = { Text(stringResource(R.string.widget_text_hint_action_domain)) }
                 )
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
@@ -341,7 +341,7 @@ private fun ActionConfigurationDialog(
                     modifier = Modifier.fillMaxWidth(),
                     value = gridItem.entityId,
                     onValueChange = { gridItem = gridItem.copy(entityId = it) },
-                    label = { Text(stringResource(R.string.widget_grid_entity)) }
+                    label = { Text(stringResource(R.string.widget_text_hint_action_data)) }
                 )
 
                 Row {

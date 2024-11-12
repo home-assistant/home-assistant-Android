@@ -243,7 +243,7 @@ class GridWidget : BaseWidgetProvider() {
             )
             setTextViewText(
                 R.id.widgetState,
-                state ?: context.getString(commonR.string.widget_grid_entity_state_unknown)
+                state ?: context.getString(commonR.string.state_unknown)
             )
 
             val fillInIntent = Intent().apply {

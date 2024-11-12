@@ -1011,16 +1011,10 @@
     <string name="grid_widget_actions">Actions</string>
     <string name="widget_grid_add_action">Add action</string>
     <string name="widget_grid_desc">A configurable grid of actions</string>
-    <string name="widget_grid_domain">Domain</string>
     <string name="widget_grid_edit_action">Edit action</string>
-    <string name="widget_grid_entity">Entity</string>
-    <string name="widget_grid_entity_state_unknown">Unknown</string>
-    <string name="widget_grid_icon">Icon</string>
     <string name="widget_grid_label">Action grid</string>
     <string name="widget_grid_name">Name</string>
     <string name="widget_grid_preferences">Grid preferences</string>
-    <string name="widget_grid_require_authentication">Require authentication</string>
-    <string name="widget_grid_save">Save</string>
     <string name="widget_grid_service">Service</string>
     <string name="widget_image_description">Home Assistant widget</string>
     <string name="widget_label_placeholder_text_button">Toggle</string>
